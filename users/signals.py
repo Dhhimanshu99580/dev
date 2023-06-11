@@ -21,11 +21,11 @@ def createProfile(sender,instance,created,**kwargs):
 #def profileUpdated
 
 def deleteUser(sender,instance,**kwargs):
-    user = instance.user
+    user = instance
     user.delete()
     
 
 post_save.connect(createProfile,sender=User)
 
 
-post_delete.connect(deleteUser,sender=Profile)
+post_delete.connect(deleteUser,sender=User)
